@@ -1,0 +1,112 @@
+/*------------------------------------------------
+	Background Color
+------------------------------------------------*/
+
+.icons-menu span,
+#author .slick-prev:hover:before, 
+#author .slick-prev:focus:before, 
+#author .slick-next:hover:before, 
+#author .slick-next:focus:before,
+.btn-fill:hover, 
+.btn-fill:focus,
+.wpcf7 input[type="submit"]:hover, 
+.wpcf7 input[type="submit"]:focus, 
+p.form-submit input[type="submit"]:hover, 
+p.form-submit input[type="submit"]:focus,
+#subscribe #subscribe-submit input[type=submit],
+.backtotop,
+nav.navigation.pagination .page-numbers.current,
+nav.navigation.pagination .page-numbers:hover,
+nav.navigation.pagination .page-numbers:focus,
+.parent .reply a:hover,
+.parent .reply a:focus {
+	background-color: #009999;
+}
+
+/*------------------------------------------------
+	Color
+------------------------------------------------*/
+a,
+.site-title a:hover,
+.site-title a:focus,
+.tp-skills-horizontalbar .skill-name,
+.tp-skills-horizontalbar .percent-value,
+.icons-menu li a .fa,
+#services ul.nav-tabs li.active a .fa,
+#services ul.nav-tabs li.active span,
+.portfolio-title h4 a:hover,
+.portfolio-title h4 a:focus,
+.load-more:hover .fa, 
+.load-more:hover, 
+.load-more:focus .fa, 
+.load-more:focus,
+.blog-posts-wrapper .entry-title a:hover,
+.blog-posts-wrapper .entry-title a:focus,
+.entry-meta .cat-links a:hover,
+.entry-meta .cat-links a:focus,
+span.posted-on a:hover time,
+span.posted-on a:focus time,
+span.posted-on a:hover time:hover,
+span.posted-on a:focus time:focus,
+.wp-custom-header-video-button:before,
+ul.address-block li a:hover,
+ul.address-block li a:focus,
+#team ul.nav-tabs h4,
+#team .tabs-wrapper .nav-tabs li span,
+.picker_close i,
+ul.trail-items li a:hover, 
+ul.trail-items li,
+.navigation.pagination .next.page-numbers:hover:before, 
+.navigation.pagination .prev.page-numbers:hover:before,
+.single-blog-wrapper .byline a:hover,
+.single-blog-wrapper .byline a:focus,
+span.comments-links a:hover,
+span.comments-links a:focus,
+.single-blog-wrapper .nav-links a:hover,
+.single-blog-wrapper .nav-links a:focus,
+.navigation.post-navigation .nav-previous a:hover:before,
+.navigation.post-navigation .nav-previous a:focus:before,
+.navigation.post-navigation .nav-next a:hover:after,
+.navigation.post-navigation .nav-next a:focus:after,
+.author-name a:hover,
+.author-name a:focus,
+.comment-meta .url:hover,
+.comment-meta .url:focus,
+.comment-content a:hover time,
+.comment-content a:focus time,
+.comment-content a:hover time:hover,
+.comment-content a:focus time:focus,
+ol.children .odd .comment-meta .comment-content .url:hover,
+ol.children .odd .comment-meta .comment-content .url:focus,
+#comments ol.children .comment-metadata a:hover time,
+#comments ol.children .comment-metadata a:focus time,
+.site-info a {
+	color: #009999;
+}
+
+.backtotop .fa,
+.parent .reply a:hover,
+.parent .reply a:focus {
+	color: #fff;
+}
+
+.site-info a:hover, 
+.site-info a:focus, 
+.site-info a:active {
+	color: #000;
+}
+
+/*------------------------------------------------
+	Border Color
+------------------------------------------------*/
+
+#services ul.nav-tabs li.active span,
+.slick-dots li button:before,
+.navigation.pagination .next.page-numbers:hover:before, 
+.navigation.pagination .prev.page-numbers:hover:before {
+	border-color: #009999;
+}
+
+.icons-menu span:after {
+	border-bottom-color: #009999;
+}
