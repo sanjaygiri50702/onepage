@@ -18,7 +18,7 @@
                         $query->the_post();?>
                         <article id="post-1" class="hentry">
                             <div class="featured-image">
-                                <a href="#"><img src="assets/uploads/blog-01.jpg" alt="blog-01"></a>
+                                <a href="#"><img src="<?php echo get_template_directory_uri() .'/assets/uploads/blog-01.jpg" alt="blog-01'?>"></a>
                             </div><!--.featured-image-->
                             <div class="entry-container">
                                 <div class="entry-meta">

@@ -2,10 +2,10 @@
     <div class="container"><!-- .container -->
         <div class="services-content-title clear">
             <header class="entry-header section-title">
-                <h2 class="entry-title">Services</h2>
+                <h2 class="entry-title"><?php echo get_theme_mod( 'onepage_service_title_setting');?></h2>
             </header><!-- .entry-header -->
 
-            <p class="description">Cras placerat ipsum sit amet vehicula rhoncus. Aenean blandit leo mauris, ut lobortis diam egestas et. Pellentesque lorem massa, pharetra non dolor eu, pharetra maximus mi. Maecenas et condimentum erat. Donec consectetur neque justo, in faucibus nunc tristique sit amet.</p>
+            <p class="description"><?php echo get_theme_mod( 'onepage_service_description_setting');?></p>
         </div><!-- .services-contennt -->
         <div class="entry-content"><!-- .entry-content -->
             <div class="tabs-wrapper"><!-- .tabs-wrapper -->

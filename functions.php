@@ -1,4 +1,5 @@
 <?php
+
 if ( ! function_exists( 'onepage_setup' ) ) :
 	function onepage_setup() {
 		add_theme_support( 'title-tag' );
@@ -34,9 +35,9 @@ if ( ! function_exists( 'onepage_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'onepage_setup' );
 function onepage_scripts(){
+	wp_enqueue_style( 'slick', get_template_directory_uri(  ) . '/assets/css/slick.css');
 	wp_enqueue_style( 'style', get_template_directory_uri(  ) . '/style.css');
 	wp_enqueue_style( 'slick-theme', get_template_directory_uri(  ) . '/assets/css/slick-theme.css');
-	wp_enqueue_style( 'slick', get_template_directory_uri(  ) . '/assets/css/slick.css');
 	wp_enqueue_style( 'font', get_template_directory_uri(  ) . '/assets/css/font-awesome.min.css');
 	wp_enqueue_style( 'black', get_template_directory_uri(  ) . '/assets/css/black.css');
 	wp_enqueue_script( 'jquery', get_template_directory_uri(  ) . '/assets/js/jquery-1.12.4.min.js' );
@@ -44,12 +45,6 @@ function onepage_scripts(){
 	wp_enqueue_script( 'custom', get_template_directory_uri(  ) . '/assets/js/custom.js' );
 	wp_enqueue_script( 'slick-min', get_template_directory_uri(  ) . '/assets/js/slick-min.js' );
 	wp_enqueue_script( 'google-min', get_template_directory_uri(  ) . '/assets/js/jquery.googlemap.js' );
-
-
-
-
-
-
 }
 add_action( 'wp_enqueue_scripts', 'onepage_scripts');
 function design_bar($width,$name){?>
@@ -62,4 +57,24 @@ function design_bar($width,$name){?>
 	<span class="skill-name"><?php echo $name?> #</span>
 </div>
 <?php }
+function onepage_customize_register( $wp_customize ) {
+
+	$wp_customize->add_panel( 'section', array(
+		'title' => __( 'Homepage Section' ),
+		'description' =>__( 'Cras placerat ipsum sit amet vehicula rhoncus' ),
+		'priority' => 160
+	  ) );
+	//load about section
+	require get_template_directory() . '/inc/customizer/about.php';
+	//load service section
+	require get_template_directory() . '/inc/customizer/service.php';
+	//load counter section
+	require get_template_directory() . '/inc/customizer/counter.php';
+	//load portfolio section
+	require get_template_directory() . '/inc/customizer/portfolio.php';
+
+
+  }
+  add_action( 'customize_register', 'onepage_customize_register' );
+  
 ?>
