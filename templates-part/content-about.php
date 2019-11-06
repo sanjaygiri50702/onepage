@@ -1,11 +1,11 @@
-<?php if(!get_theme_mod( 'onepage_radio_setting')){
+<?php if(!get_theme_mod( 'onepage_about_radio_setting')){
     return ;
     }?>
 <div class="page-section no-padding-bottom relative" id="about">
     <div class="container">
         <div class="about-content-title clear">
             <header class="entry-header">
-                <h2 class="entry-title"><?php echo get_theme_mod('onepage_title_setting','default');?></h2>
+                <h2 class="entry-title"><?php echo get_theme_mod('onepage_about_title_setting','default');?></h2>
             </header>
             <?php wp_nav_menu( array(
                 'theme_location'=>'social',
@@ -33,7 +33,7 @@
                     <?php
                     /* $post=get_post(164);
                     echo $post->post_content;*/
-                    echo get_theme_mod( 'onepage_description_setting');
+                    echo get_theme_mod( 'onepage_about_description_setting');
                     ?>
                 </div>
             </div>

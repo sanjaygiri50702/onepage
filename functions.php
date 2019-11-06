@@ -73,8 +73,51 @@ function onepage_customize_register( $wp_customize ) {
 	//load portfolio section
 	require get_template_directory() . '/inc/customizer/portfolio.php';
 
-
   }
   add_action( 'customize_register', 'onepage_customize_register' );
-  
+
+  function radio_callback($control){
+	$radio_value = $control->manager->get_setting('onepage_about_radio_setting')->value();
+	if($radio_value==1) return true;
+	else return false;
+}
+function getCategoryList(){
+$cats=get_categories();
+foreach($cats as $cat){
+    $cat_list[$cat->term_id]=$cat->name;
+}
+return $cat_list;
+}
+function getPostList(){
+    $posts=get_posts(array(
+        'numberposts'=> -1,
+    ));
+	foreach($posts as $post){
+		$post_list[$post->ID]=$post->post_title;
+	}
+    return$post_list;
+}
+function portfolio_post_callback($control){
+	$value = $control->manager->get_setting('onepage_portfolio_contenttype_setting')->value();
+	$radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
+	if($value == 'post' && $radio_value==1) return true;
+	else return false;
+}
+function portfolio_category_callback($control){
+	$value = $control->manager->get_setting('onepage_portfolio_contenttype_setting')->value();
+	$radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
+	if($value == 'category' && $radio_value==1) return true;
+	else return false;
+}
+function portfolio_radio_callback($control){
+	$radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
+	if($radio_value==1) return true;
+	else return false;
+}
+function counter_radio_callback($control){
+	$radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
+	if($radio_value==1) return true;
+	else return false;
+}
+
 ?>

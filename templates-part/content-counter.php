@@ -1,3 +1,6 @@
+<?php if(!get_theme_mod( 'onepage_counter_radio_setting')){
+    return ;
+    }?>
 <div id="counter" class="page-section relative col-4" style="background-image: url(assets/uploads/counter.jpg)">
     <div class="overlay"></div>
     <div class="container">
