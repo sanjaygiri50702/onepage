@@ -2,36 +2,23 @@
     <div class="container">
         <div class="team-content-title clear">
             <header class="entry-header section-title">
-                <h2 class="entry-title">The Team</h2>
+                <h2 class="entry-title"><?php echo get_theme_mod('onepage_team_title_setting','The Team') ?></h2>
             </header><!-- .entry-header -->
-            <p class="description">Cras placerat ipsum sit amet vehicula rhoncus. Aenean blandit leo mauris, ut lobortis diam egestas et. Pellentesque lorem massa, pharetra non dolor eu, pharetra maximus mi. Maecenas et condimentum erat. Donec consectetur neque justo, in faucibus nunc tristique sit amet.</p>
+            <p class="description"><?php echo get_theme_mod('onepage_team_description_setting','Cras placerat ipsum sit amet vehicula rhoncus. Aenean blandit leo mauris, ut lobortis diam egestas et. Pellentesque lorem massa, pharetra non dolor eu, pharetra maximus mi. Maecenas et condimentum erat. Donec consectetur neque justo, in faucibus nunc tristique sit amet.');?></p>
         </div><!-- team-content -->
 
         <div class="entry-content">
             <div class="tabs-wrapper">
                 <ul class="nav-tabs">
-                    <li>
-                        <a href="#james-henderson">
-                            <img src="<?php echo get_template_directory_uri(). '/assets/uploads/team-01.jpg'?>" alt="team-01">
-                            <h4>James henderson</h4>
-                            <span>Designer</span>
+                    <?php for($i = 1;$i <= 3;$i++){ ?>
+                        <li <?php if($i==2) echo 'class="active"'?>>
+                        <a href="#">
+                            <img src="<?php echo get_theme_mod('onepage_team0'.$i.'_image_setting');?>" alt="team-01">
+                            <h4><?php echo get_theme_mod('onepage_team0'.$i.'_title_setting');?></h4>
+                            <span><?php echo get_theme_mod('onepage_team0'.$i.'_description_setting');?></span>
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="#annie-nunes">
-                            <img src="<?php echo get_template_directory_uri(). '/assets/uploads/team-02.jpg'?>" alt="team-02">
-                            <h4>Annie nunes</h4>
-                            <span>Developer</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#helga-markus"> 
-                            <img src="<?php echo get_template_directory_uri(). '/assets/uploads/team-03.jpg'?>" alt="team-03">
-                            <h4>Helga markus</h4>
-                            <span>Photographer</span>
-                        </a>
-                    </li>
+                    <?php }?>
                 </ul><!-- .nav-tabs -->
 
                 <div class="tabs-contents-wrapper">

@@ -8,7 +8,7 @@ $wp_customize->add_setting('onepage_portfolio_radio_setting',array(
     'default'=>0
 ));
 $wp_customize->add_control('onepage_portfolio_radio_setting',array(
-    'label'=>esc_html( 'About us section enable','onepagetheme' ),
+    'label'=>esc_html__( 'Portfolio section enable','onepagetheme' ),
     'type'=>'radio',
     'section'=>'onepage_portfolio_section',
     'type'=>'radio',
@@ -29,7 +29,7 @@ $wp_customize->add_control('onepage_portfolio_title_setting',array(
 ));
 $wp_customize->add_setting('onepage_portfolio_description_setting',array(
     'default'=>'ipsum',
-    'transport'=>'refresh',
+    'transport'=>'postMessage',
     'sanitize_callback'=>'sanitize_textarea_field'
 ));
 $wp_customize->add_control('onepage_portfolio_description_setting',array(
@@ -51,6 +51,17 @@ $wp_customize->add_control('onepage_portfolio_post_number_setting',array(
     'section'=>'onepage_portfolio_section',
     'active_callback'=>'portfolio_radio_callback'
 ));
+$wp_customize->add_setting('onepage_portfolio_post_col_setting',array(
+    'default'=>2,
+    'transport'=>'refresh',
+    'sanitize_callback'=>'sanitize_text_field'
+));
+$wp_customize->add_control('onepage_portfolio_post_col_setting',array(
+    'label'=>esc_html__( 'Posts column','onepagetheme'),
+    'type'=>'number',
+    'section'=>'onepage_portfolio_section',
+    'active_callback'=>'portfolio_radio_callback'
+));
 $wp_customize->add_setting('onepage_portfolio_contenttype_setting',array(
     'default'=>'ipsum',
     'transport'=>'refresh',
@@ -65,19 +76,17 @@ $wp_customize->add_control('onepage_portfolio_contenttype_setting',array(
         'post' => 'Post'
     ),
     'active_callback'=>'portfolio_radio_callback'
-
-    
 ));
 $wp_customize->add_setting('onepage_portfolio_category_setting',array(
     'default'=>'ipsum',
     'transport'=>'refresh',
-    'sanitize_callback'=>'sanitize_text_field'
+    'sanitize_callback'=>'onepage_sanitize_text_option'
 ));
 $wp_customize->add_control('onepage_portfolio_category_setting',array(
     'label'=>esc_html__( 'Select Category','onepagetheme' ),
     'section'=>'onepage_portfolio_section',
     'type'    => 'select',
-    'choices' =>getCategoryList(),
+    'choices' =>get_category_list(),
     'active_callback'=>'portfolio_category_callback'
 ));
 for ($i = 1; $i <= get_theme_mod('onepage_portfolio_post_number_setting'); $i++) {
@@ -90,10 +99,8 @@ for ($i = 1; $i <= get_theme_mod('onepage_portfolio_post_number_setting'); $i++)
         'label'=>esc_html__( 'Select Post '.$i.'.','onepagetheme' ),
         'section'=>'onepage_portfolio_section',
         'type'    => 'select',
-        'choices' =>getPostList(),
+        'choices' =>get_post_list(),
         'active_callback'=>'portfolio_post_callback'
     ));
 }
 
-
-?>

@@ -1,4 +1,7 @@
-<?php 
+<?php if(!get_theme_mod( 'onepage_author_radio_setting')){
+    return ;
+}?>
+<?php
     $query = new WP_Query(array(
         'cat'=>22,
         'posts_per_page'=>1
@@ -17,17 +20,17 @@
                         <div class="hentry">
                             <div class="author-slider-content">
                                 <header class="entry-header">
-                                    <h2 class="entry-title"><?php the_title();?></h2>
-                                    <span>UI/UX Designer</span>
+                                    <h2 class="entry-title"><?php echo get_theme_mod( 'onepage_author_title_setting')?></h2>
+                                    <span><?php echo get_theme_mod( 'onepage_author_subtitle_setting')?></span>
                                 </header><!-- .entry-header -->
                                 <div class="entry-content">
-                                    <p><?php the_content();?></p>
+                                    <p><?php echo get_theme_mod( 'onepage_author_description_setting');?></p>
                                 </div><!-- .entry-content -->
                                 <ul class="social-icons">
-                                    <li><a href="www.facebook.com"><span class="screen-reader-text">Facebook</span></a></li>
-                                    <li><a href="www.twitter.com"><span class="screen-reader-text">Twitter</span></a></li>
-                                    <li><a href="www.plus.google.com"><span class="screen-reader-text">Google Plus</span></a></li>
-                                    <li><a href="www.instagram.com"><span class="screen-reader-text">Instagram</span></a></li>
+                                    <?php
+                                    for($i = 1; $i <= 4; $i ++) {?>
+                                    <li><a href="<?php echo get_theme_mod( 'onepage_author_social'.$i.'_link_setting')?>"><span class="screen-reader-text"></span></a></li>
+                                    <?php } ?>
                                 </ul><!-- .social-icons -->
                             </div><!-- .author-slider-content -->
                         </div><!-- .hentry -->
@@ -39,4 +42,3 @@
         </div><!-- .author-slider -->
     </div><!-- .container -->
 </div><!-- #author -->
-

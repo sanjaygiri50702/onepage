@@ -7,10 +7,9 @@
             <header class="entry-header section-title">
                 <h2 class="entry-title"><?php echo get_theme_mod( 'onepage_portfolio_title_setting'); ?></h2>
             </header><!-- .entry-header -->
-            <p class="description"><?php echo get_theme_mod('onepage_portfolio_description_setting')?></p>
+            <p class="description"><?php echo get_theme_mod('onepage_portfolio_description_setting');?></p>
         </div><!-- portfolio-content -->
-
-        <div class="entry-content col-2">
+        <div class="entry-content col-<?php echo get_theme_mod('onepage_portfolio_post_col_setting');?>">
             <div class="row">
                 <div class="portfolio-item">
                 <?php
@@ -49,7 +48,7 @@
                             </div><!-- .portfolio-title -->
 
                             <div class="entry-summary">
-                                <?php echo get_the_content();?>
+                                <?php echo get_the_excerpt();?>
                             </div><!-- .entry-summary -->
                         </div><!---.hentry--->
                         <?php

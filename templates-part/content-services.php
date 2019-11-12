@@ -1,3 +1,6 @@
+<?php if(!get_theme_mod( 'onepage_service_radio_setting')){
+    return ;
+}?>
 <div id="services" class="page-section relative">
     <div class="container"><!-- .container -->
         <div class="services-content-title clear">
