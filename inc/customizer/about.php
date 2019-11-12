@@ -31,7 +31,6 @@
 		'type'=>'text',
 		'section'=>'onepage_about_section',
 		'active_callback'=>'onepage_about_radio_callback'
-		
 	));
 	//about us description control
 	$wp_customize->add_setting('onepage_about_description_setting',array(

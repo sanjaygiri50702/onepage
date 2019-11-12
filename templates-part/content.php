@@ -7,6 +7,10 @@
 <?php get_template_part( 'templates-part/content','testimonial' );?>
 <?php get_template_part( 'templates-part/content','team' );?>
 <?php get_template_part( 'templates-part/content','client' );?>
+<?php get_template_part( 'templates-part/content','contact' );?>
+<?php get_template_part( 'templates-part/content','map' );?>
+
+
 
 
 

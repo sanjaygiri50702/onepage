@@ -8,31 +8,41 @@
 </head>
 <?php wp_head()?>
 <body class="home">
-<header class="site-header">
+<header class="site-header" id="masthead">
     <div class="site-menu">
         <div class="container">
             <div class="site-branding pull-left">
                 <div class="site-logo">
-                    <a href="<?php echo home_url();?>">
-                        <img src="<?php echo get_template_directory_uri().'/assets/uploads/logo.png'?>" alt="logo" class="custom-logo">
-                    </a>
-                </div>
+                    <a href="#"><img src="<?php echo get_template_directory_uri().'/assets/uploads/logo.png'?>" class="custom-logo" alt="logo"></a>
+                </div><!-- .site-logo -->
                 <div id="site-details">
-                    <h1 class="site-title">
-                        <a href="<?php echo esc_url(home_url());?>"><?php bloginfo( 'name' ) ?></a>
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <!-- <div id="header-featured-image" class="relative">
+                    <h1 class="site-title"><a href="#" rel="home">one Page</a></h1>
+                    <p class="site-description">WP Theme</p>
+                </div><!-- #site-details -->
+            </div><!-- .site-branding -->
+        </div><!-- .container -->
+    </div><!-- .site-menu -->
+    <div id="header-featured-image" class="relative">
             <div class="overlay"></div>
             <div id="wp-custom-header" class="wp-custom-header">
-                <video id="wp-custom-header-video" autoplay="" loop="" width="1920" height="1080" src="<?php echo get_template_directory_uri().'/assets/video/video.mp4' ?>">
+                <video id="wp-custom-header-video" autoplay="" loop="" width="1920" height="1080" src="<?php echo get_template_directory_uri().'/assets/video/video.mp4'?>">
                 </video>
-                <button type="button" id="wp-custom-header-video-button" class="wp-custom-header-video-button wp-custom-header-video-play">Pause</button>
+                <button type="button" id="wp-custom-header-video-button" class="wp-custom-header-video-button wp-custom-header-video-play">
+                    Pause
+                </button>
             </div>
-        </div> -->
-    </div>
+            <div class="video-content">
+                <div class="video-title">
+                    <h1>Simple yet Beautiful</h1>
+                    <h2>Interfaces</h2>
+                </div><!-- .video-title -->
+            </div><!-- .video-content -->
+            <div class="move-down">
+                <a href="#content" class="scroll-link active">
+                    <img src="<?php echo get_template_directory_uri().'/assets/uploads/icon-01.png'?>" alt="icon" class="icon-animation">
+                </a>
+            </div><!-- .move-down -->
+        </div><!--header featured image-->
 </header>
 <div class="icons-menu">
         <ul>

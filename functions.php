@@ -58,7 +58,20 @@ function design_bar($width,$name){?>
 </div>
 <?php }
 function onepage_customize_register( $wp_customize ) {
-
+    $wp_customize->add_section( 'onepage_footer_section' , array(
+        'title' => esc_html__( 'Footer', 'onepagetheme' ),
+        'priority' => 105, // Before Widgets.
+    ));
+    $wp_customize->add_setting('onepage_footer_text_setting',array(
+        'default'=>'ipsum',
+        'transport'=>'refresh',
+        'sanitize_callback'=>'sanitize_text_field'
+    ));
+    $wp_customize->add_control('onepage_footer_text_setting',array(
+        'label'=>esc_html__( 'Footer Text','onepagetheme' ),
+        'type'=>'text',
+        'section'=>'onepage_footer_section',
+    ));
 	$wp_customize->add_panel( 'section', array(
 		'title' => __( 'Homepage Section' ),
 		'description' =>__( 'Cras placerat ipsum sit amet vehicula rhoncus' ),
@@ -82,6 +95,7 @@ function onepage_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/client.php';
     //load testimonial section
     require get_template_directory() . '/inc/customizer/testimonial.php';
+
   }
   add_action( 'customize_register', 'onepage_customize_register' );
 
