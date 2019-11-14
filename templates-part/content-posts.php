@@ -24,7 +24,7 @@
                                 <div class="entry-meta">
                                     <span class="cat-links">
                                         <span class="screen-reader-text">Categories</span>
-                                        <a href="http://localhost/wordpress/category/cat/" rel="category tag"><?php echo get_category_name($post->ID);?></a>
+                                        <a href="#" rel="category tag"><?php echo get_category_name($post->ID);?></a>
                                     </span><!-- .cat-links -->
 
                                     <span class="posted-on">

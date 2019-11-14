@@ -6,7 +6,6 @@
             </header><!-- .entry-header -->
             <p class="description">Cras placerat ipsum sit amet vehicula rhoncus. Aenean blandit leo mauris, ut lobortis diam egestas et. Pellentesque lorem massa, pharetra non dolor eu, pharetra maximus mi. Maecenas et condimentum erat. Donec consectetur neque justo, in faucibus nunc tristique sit amet.</p>
         </div><!-- team-content -->
-
         <div class="entry-content">
             <div class="contact-information-wrapper col-2">
                 <div class="hentry">

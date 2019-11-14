@@ -7,7 +7,7 @@ if ( ! function_exists( 'onepage_setup' ) ) :
 		set_post_thumbnail_size( 1568, 9999 );
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'onepage' ),
+				'primary' => __( 'Primary', 'onepage' ),
 				'footer' => __( 'Footer Menu', 'onepage' ),
 				'social' => __( 'Social Links Menu', 'onepage' ),
 			)
@@ -30,7 +30,16 @@ if ( ! function_exists( 'onepage_setup' ) ) :
 			'default-image' => get_template_directory_uri() . '/assets/video/video.jpg',
 		);
 		add_theme_support( 'custom-header', $args );
-
+        add_theme_support(
+            'html5',
+            array(
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+            )
+        );
 	}
 endif;
 add_action( 'after_setup_theme', 'onepage_setup' );
@@ -54,7 +63,7 @@ function design_bar($width,$name){?>
 			<?php echo $width?>%
 		</span>
 	</div>
-	<span class="skill-name"><?php echo $name?> #</span>
+	<span class="skill-name"><?php echo esc_html($name);?> #</span>
 </div>
 <?php }
 function onepage_customize_register( $wp_customize ) {
@@ -261,5 +270,16 @@ function onepage_client_radio_callback($control){
     if($radio_value==1) return true;
     else return false;
 }
+require get_template_directory() . '/inc/color-switcher.php';
+require get_template_directory() . '/inc/icon-menu.php';
+function custom_body_class(){
+    if(is_front_page()){
+        return 'home';
+    }
+    if(is_single()){
+        return 'single-post no-sidebar';
+    }
+}
+require get_template_directory() . '/classes/class-onepage-walker-comment.php';
 
 ?>

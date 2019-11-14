@@ -3124,6 +3124,7 @@ body:not(.no-sidebar) #comments ol.comment-list {
     padding-left: 45px;
     margin-left: 175px;
     border-left: 1px solid #e8e9e9;
+    color: #000;
 }
 .reply {
     padding-left: 96px;

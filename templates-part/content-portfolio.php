@@ -22,7 +22,7 @@
                                 </a>
                             </figure>
                             <div class="portfolio-title">
-                                <h4><a href="#"><?php echo get_the_title(get_theme_mod('onepage_portfolio_post'.$i.'_setting'));?></a></h4>
+                                <h4><a href="<?php echo get_permalink(get_theme_mod('onepage_portfolio_post'.$i.'_setting'));?>"><?php echo get_the_title(get_theme_mod('onepage_portfolio_post'.$i.'_setting'));?></a></h4>
                             </div><!-- .portfolio-title -->
 
                             <div class="entry-summary">
@@ -44,7 +44,7 @@
                                 <a href="<?php the_permalink();?>"><img src="<?php echo get_the_post_thumbnail_url();?>" alt=""></a>
                             </figure>
                             <div class="portfolio-title">
-                                <h4><a href="#"><?php the_title();?></a></h4>
+                                <h4><a href="<?php the_permalink();?>"><?php the_title();?></a></h4>
                             </div><!-- .portfolio-title -->
 
                             <div class="entry-summary">
