@@ -20,28 +20,19 @@
                     </li>
                     <?php }?>
                 </ul><!-- .nav-tabs -->
-
                 <div class="tabs-contents-wrapper">
                     <div id="james-henderson" class="tab-pane">
-                        <strong class="pull-left">Hello, I am James henderson. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis risus.</strong>
-
                         <div class="entry-summary pull-right">
                             <p>Mauris ut metus a nibh fermentum mollis. Cras ullamcorper ac lectus eget hendrerit. Aenean lacinia volutpat blandit. In ultricies iaculis orci queleifend. Nunc in placerat odio. Nullam porta sapien ac nunc egestas aliquam. Nulla vitae pharetra enim. Sed sed consectetur nibh, vel placerat mauris.</p>
                             <p>Mauris ut metus a nibh fermentum mollis. Cras ullamcorper ac lectus eget hendrerit. Aenean lacinia volutpat blandit. In ultricies iaculis orci queleifend. Nunc in placerat odio. Nullam porta sapien ac nunc egestas aliquam. Nulla vitae pharetra enim. Sed sed consectetur nibh, vel placerat mauris.</p>
                         </div><!-- .entry-summary -->
                     </div><!-- .tab-pane -->
-
                     <div id="annie-nunes" class="tab-pane active">
-                        <strong class="pull-left">Hello, I am Annie Nunes. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis risus.</strong>
-
                         <div class="entry-summary pull-right">
                             <p>Mauris ut metus a nibh fermentum mollis. Cras ullamcorper ac lectus eget hendrerit. Aenean lacinia volutpat blandit. In ultricies iaculis orci queleifend. Nunc in placerat odio. Nullam porta sapien ac nunc egestas aliquam. Nulla vitae pharetra enim. Sed sed consectetur nibh, vel placerat mauris. Mauris ut metus a nibh fermentum mollis. Cras ullamcorper ac lectus eget hendrerit. Aenean lacinia volutpat blandit. In ultricies iaculis orci queleifend. Nunc in placerat odio. Nullam porta sapien ac nunc egestas aliquam. Nulla vitae pharetra enim. Sed sed consectetur nibh, vel placerat mauris.</p>
                         </div><!-- .entry-summary -->
                     </div><!-- .tab-pane -->
-
                     <div id="helga-markus" class="tab-pane">
-                        <strong class="pull-left">Hello, I am Helga markus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis risus.</strong>
-
                         <div class="entry-summary pull-right">
                             <p>Mauris ut metus a nibh fermentum mollis. Cras ullamcorper ac lectus eget hendrerit. Aenean lacinia volutpat blandit. In ultricies iaculis orci queleifend. Nunc in placerat odio. Nullam porta sapien ac nunc egestas aliquam. Nulla vitae pharetra enim. Sed sed consectetur nibh, vel placerat mauris. Mauris ut metus a nibh fermentum mollis. Cras ullamcorper ac lectus eget hendrerit. Aenean lacinia volutpat blandit. In ultricies iaculis orci queleifend. Nunc in placerat odio. Nullam porta sapien ac nunc egestas aliquam. Nulla vitae pharetra enim. Sed sed consectetur nibh, vel placerat mauris.</p>
                         </div><!-- .entry-summary -->

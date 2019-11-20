@@ -12,8 +12,8 @@ $wp_customize->add_control('onepage_author_radio_setting',array(
     'type'=>'radio',
     'section'=>'onepage_author_section',
     'choices'=>array(
-        '1'=>esc_html__('Enable'),
-        '0'=>esc_html__('Disable')
+        '1'=>esc_html__('Enable','onepagetheme'),
+        '0'=>esc_html__('Disable','onepagetheme')
     )
     ));
 $wp_customize->add_setting('onepage_author_title_setting',array(
@@ -64,4 +64,3 @@ for($i = 1; $i <= 4; $i ++) {
         'active_callback'=>'author_radio_callback'
     ));
 }
-?>

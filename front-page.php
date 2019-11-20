@@ -1,11 +1,16 @@
-<?php
-get_header();
-if (have_posts() ) : 
-	while (have_posts()) : the_post();
-	get_template_part( 'templates-part/content' );
-    endwhile;
-	else:
-        get_template_part('template-parts/content','none');       
-endif;
-get_footer();
-?>
+<?php get_header(); get_template_part( 'templates-part/content','about' );?>
+<?php get_template_part( 'templates-part/content','services' );?>
+<?php get_template_part( 'templates-part/content','counter' );?>
+<?php get_template_part( 'templates-part/content','portfolio' );?>
+<?php get_template_part( 'templates-part/content','author' );?>
+<?php get_template_part( 'templates-part/content','posts' );?>
+<?php get_template_part( 'templates-part/content','testimonial' );?>
+<?php get_template_part( 'templates-part/content','team' );?>
+<?php get_template_part( 'templates-part/content','client' );?>
+<?php get_template_part( 'templates-part/content','contact' );?>
+<?php get_template_part( 'templates-part/content','map' ); get_footer();?>
+
+
+
+
+

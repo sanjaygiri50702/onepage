@@ -40,7 +40,7 @@
                                 </header>
                             
                                 <div class="entry-content">
-                                    <p><?php echo get_the_content(); ?></p>
+                                    <p><?php echo get_the_excerpt(); ?></p>
 
                                     <a href="<?php the_permalink();?>" class="btn btn-fill">Read More</a>
                                 </div><!--.blog-content-->

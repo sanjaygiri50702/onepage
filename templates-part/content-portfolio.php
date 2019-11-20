@@ -17,7 +17,7 @@
                    for ($i = 1; $i <= get_theme_mod('onepage_portfolio_post_number_setting'); $i++) {?>
                         <div class="hentry">
                             <figure>
-                                <a href="<?php the_permalink();?>">
+                                <a href="<?php echo get_permalink(get_theme_mod('onepage_portfolio_post'.$i.'_setting'));?>">
                                 <img src="<?php echo get_the_post_thumbnail_url(get_theme_mod('onepage_portfolio_post'.$i.'_setting'));?>" alt="">
                                 </a>
                             </figure>
@@ -26,7 +26,7 @@
                             </div><!-- .portfolio-title -->
 
                             <div class="entry-summary">
-                                <?php echo get_the_content(null,false,get_theme_mod('onepage_portfolio_post'.$i.'_setting'));?>
+                                <?php echo get_the_excerpt(get_theme_mod('onepage_portfolio_post'.$i.'_setting'));?>
                             </div><!-- .entry-summary -->
                         </div><!---.hentry--->
                     <?php }
@@ -41,12 +41,11 @@
                             $cat_query->the_post();?>
                             <div class="hentry">
                             <figure>
-                                <a href="<?php the_permalink();?>"><img src="<?php echo get_the_post_thumbnail_url();?>" alt=""></a>
+                                <a href="<?php the_permalink();?>"><img src="<?php esc_url(get_the_post_thumbnail_url());?>" alt=""></a>
                             </figure>
                             <div class="portfolio-title">
                                 <h4><a href="<?php the_permalink();?>"><?php the_title();?></a></h4>
                             </div><!-- .portfolio-title -->
-
                             <div class="entry-summary">
                                 <?php echo get_the_excerpt();?>
                             </div><!-- .entry-summary -->

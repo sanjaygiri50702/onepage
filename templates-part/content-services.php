@@ -20,7 +20,6 @@
                             <span>1</span>
                         </a> 
                     </li>
-
                     <li>
                         <a href="#web-design">
                             <i class="fa fa-television"></i>
@@ -28,7 +27,6 @@
                             <span>2</span>
                         </a>
                     </li>
-
                     <li>
                         <a href="#multi-media">
                             <i class="fa fa-film"></i>
@@ -36,7 +34,6 @@
                             <span>3</span>
                         </a>
                     </li>
-
                     <li>
                         <a href="#Photography">
                             <i class="fa fa-camera-retro"></i>

@@ -56,17 +56,36 @@ function onepage_scripts(){
 	wp_enqueue_script( 'google-min', get_template_directory_uri(  ) . '/assets/js/jquery.googlemap.js' );
 }
 add_action( 'wp_enqueue_scripts', 'onepage_scripts');
-function design_bar($width,$name){?>
-	<div class="outer-box">
-	<div class="inner-fill" style="background-color:#2223828; width:<?php echo $width ?>%">
-		<span class="percent-value">
-			<?php echo $width?>%
-		</span>
-	</div>
-	<span class="skill-name"><?php echo esc_html($name);?> #</span>
-</div>
-<?php }
+function onepage_widgets_init() {
+    register_sidebar( array(
+        'name'          => esc_html__( 'Sidebar', 'magazinews-pro' ),
+        'id'            => 'sidebar-1',
+        'description'   => esc_html__( 'Add widgets here.', 'magazinews-pro' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+
+    register_sidebars( 4, array(
+        'name'          => esc_html__( 'Optional Sidebar %d', 'magazinews-pro' ),
+        'id'            => 'optional-sidebar',
+        'description'   => esc_html__( 'Add widgets here.', 'magazinews-pro' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'onepage_widgets_init' );
+
+add_filter('excerpt_length',function ($length){
+    return 10;
+});
+
 function onepage_customize_register( $wp_customize ) {
+    require get_template_directory() .'/inc/defaults.php';
+    $options = onepage_get_default_theme_options();
     $wp_customize->add_section( 'onepage_footer_section' , array(
         'title' => esc_html__( 'Footer', 'onepagetheme' ),
         'priority' => 105, // Before Widgets.
@@ -82,10 +101,15 @@ function onepage_customize_register( $wp_customize ) {
         'section'=>'onepage_footer_section',
     ));
 	$wp_customize->add_panel( 'section', array(
-		'title' => __( 'Homepage Section' ),
+		'title' =>$options['about_title'],
 		'description' =>__( 'Cras placerat ipsum sit amet vehicula rhoncus' ),
 		'priority' => 160
 	  ) );
+    $wp_customize->add_panel( 'theme_option_section', array(
+        'title' => esc_html__( 'Theme options','onepagetheme' ),
+        'description' =>__( 'Cras placerat ipsum sit amet vehicula rhoncus' ),
+        'priority' => 180
+    ) );
 	//load about section
 	require get_template_directory() . '/inc/customizer/about.php';
 	//load service section
@@ -104,182 +128,17 @@ function onepage_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/client.php';
     //load testimonial section
     require get_template_directory() . '/inc/customizer/testimonial.php';
-
+    //load layout section
+    require get_template_directory() . '/inc/theme-options/layout.php';
   }
   add_action( 'customize_register', 'onepage_customize_register' );
-
-function onepage_about_radio_callback($control){
-	$radio_value = $control->manager->get_setting('onepage_about_radio_setting')->value();
-	if($radio_value==1) return true;
-	else return false;
-}
-function onepage_service_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_service_radio_setting')->value();
-    if($radio_value==1) return true;
-    else return false;
-}
-function get_category_list(){
-$cats=get_categories();
-foreach($cats as $cat){
-    $cat_list[$cat->term_id]=$cat->name;
-}
-return $cat_list;
-}
-function get_post_list(){
-    $posts=get_posts(array(
-        'numberposts'=> -1,
-    ));
-	foreach($posts as $post){
-		$post_list[$post->ID]=$post->post_title;
-	}
-    return$post_list;
-}
-function portfolio_post_callback($control){
-	$value = $control->manager->get_setting('onepage_portfolio_contenttype_setting')->value();
-	$radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
-	if($value == 'post' && $radio_value==1) return true;
-	else return false;
-}
-function portfolio_category_callback($control){
-	$value = $control->manager->get_setting('onepage_portfolio_contenttype_setting')->value();
-	$radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
-	if($value == 'category' && $radio_value==1) return true;
-	else return false;
-}
-function portfolio_radio_callback($control){
-	$radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
-	if($radio_value==1) return true;
-	else return false;
-}
-function counter_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
-    if($radio_value==1) return true;
-    else return false;
-}
-function counter01_radio_callback($control){
-    $value = $control->manager->get_setting('onepage_counter_select_radio_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
-	if($radio_value==1 && $value==1) return true;
-	else return false;
-}
-function counter02_radio_callback($control){
-    $value = $control->manager->get_setting('onepage_counter_select_radio_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
-    if($radio_value==1 && $value==2) return true;
-    else return false;
-}
-function counter03_radio_callback($control){
-    $value = $control->manager->get_setting('onepage_counter_select_radio_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
-    if($radio_value==1 && $value==3) return true;
-    else return false;
-}
-function counter04_radio_callback($control){
-    $value = $control->manager->get_setting('onepage_counter_select_radio_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
-    if($radio_value==1 && $value==4) return true;
-    else return false;
-}
-function author_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_author_radio_setting')->value();
-    if($radio_value==1) return true;
-    else return false;
-}
-function blog_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_blog_radio_setting')->value();
-    if($radio_value==1) return true;
-    else return false;
-}
-function blog_post_callback($control){
-    $value = $control->manager->get_setting('onepage_blog_contenttype_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_blog_radio_setting')->value();
-    if($value == 'post' && $radio_value==1) return true;
-    else return false;
-}
-function blog_category_callback($control){
-    $value = $control->manager->get_setting('onepage_blog_contenttype_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_blog_radio_setting')->value();
-    if($value == 'category' && $radio_value==1) return true;
-    else return false;
-}
-function get_category_name($id){
-    $category = get_the_category($id);
-    return $category['0']->name;
-}
-function team01_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_team_select_radio_setting')->value();
-    if($radio_value==1) return true;
-    else return false;
-}
-function team02_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_team_select_radio_setting')->value();
-    if($radio_value==2) return true;
-    else return false;
-}
-function team03_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_team_select_radio_setting')->value();
-    if($radio_value==3) return true;
-    else return false;
-}
-function onepage_sanitize_text_option( $choice ) {
-    $valid = array(
-        'default',
-        'custom',
-    );
-    if ( in_array( $choice, $valid, true ) ) {
-        return $choice;
-    }
-    return 'default';
-}
-function validate_about_counter($validity, $value){
-    $value = intval($value);
-    if (!is_numeric($value)) {
-        $validity->add( 'percent_value_not_numeric', __( 'value is not numeric' ) );
-    } elseif ($value < 0) {
-        $validity->add( 'percent_value_small', __( 'percent is lesser than 0' ) );
-    } elseif ($value > 100) {
-        $validity->add( 'percent_value_large', __( 'Percent is greater than 100' ) );
-    }
-    return $validity;
-}
-function get_testimonial_list($id){
-    $choice = [];
-    for($i = 1; $i <= $id; $i ++){
-        $choice[$i]='Choice '.$i.'.';
-    }
-    return $choice;
-}
-function onepage_testimonial_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_testimonial_radio_setting')->value();
-    $choice_id = $control->manager->get_setting('onepage_testimonial_select_radio_setting')->value();
-    $control_id = $control->id;
-    if($radio_value==1 && $choice_id==1 && $control_id=='onepage_testimonial01_title_setting') return true;
-    if($radio_value==1 && $choice_id==2 && $control_id=='onepage_testimonial02_title_setting') return true;
-    if($radio_value==1 && $choice_id==3 && $control_id=='onepage_testimonial03_title_setting') return true;
-    if($radio_value==1 && $choice_id==1 && $control_id=='onepage_testimonial01_description_setting') return true;
-    if($radio_value==1 && $choice_id==2 && $control_id=='onepage_testimonial02_description_setting') return true;
-    if($radio_value==1 && $choice_id==3 && $control_id=='onepage_testimonial03_description_setting') return true;
-    if($radio_value==1 && $choice_id==1 && $control_id=='onepage_testimonial01_author_setting') return true;
-    if($radio_value==1 && $choice_id==2 && $control_id=='onepage_testimonial02_author_setting') return true;
-    if($radio_value==1 && $choice_id==3 && $control_id=='onepage_testimonial03_author_setting') return true;
-    if($radio_value==1 && $control_id=='onepage_testimonial_select_radio_setting') return true;
-    else return false;
-}
-function onepage_client_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_client_radio_setting')->value();
-    if($radio_value==1) return true;
-    else return false;
-}
+require get_template_directory() . '/inc/section/about.php';
+require get_template_directory() . '/inc/helper.php';
+require get_template_directory() . '/inc/sanitize.php';
+require get_template_directory() . '/inc/validation.php';
+require get_template_directory() . '/inc/active-callbacks.php';
 require get_template_directory() . '/inc/color-switcher.php';
 require get_template_directory() . '/inc/icon-menu.php';
-function custom_body_class(){
-    if(is_front_page()){
-        return 'home';
-    }
-    if(is_single()){
-        return 'single-post no-sidebar';
-    }
-}
 require get_template_directory() . '/classes/class-onepage-walker-comment.php';
-
+require get_template_directory() . '/inc/template-tags.php';
 ?>

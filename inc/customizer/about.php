@@ -5,11 +5,11 @@
 		'title'=>__('About us','onepagetheme'),
 		'panel'=>'section'
 	));
-	$wp_customize->add_setting('onepage_about_radio_setting',array(
+	$wp_customize->add_setting('onepage_about[about_section_enable]',array(
 		'transport'=>'refresh',
-		'default'=>0
+		'default'=>$options['about_section_enable'],
 	));
-	$wp_customize->add_control('onepage_about_radio_setting',array(
+	$wp_customize->add_control('onepage_about[about_section_enable]',array(
 		'label'=>esc_html__( 'About us section enable','onepagetheme' ),
 		'type'=>'radio',
 		'section'=>'onepage_about_section',
@@ -20,25 +20,25 @@
 	));
 	//about us tittle control
 
-	$wp_customize->add_setting('onepage_about_title_setting',array(
-		'default'=>'ipsum',
+	$wp_customize->add_setting('onepage_about[about_title]',array(
+		'default'=>$options['about_title'],
 		'transport'=>'refresh',
 		'sanitize_callback'=>'sanitize_text_field'
 
 	));
-	$wp_customize->add_control('onepage_about_title_setting',array(
+	$wp_customize->add_control('onepage_about[about_title]',array(
 		'label'=>esc_html__( 'Title','onepagetheme' ),
 		'type'=>'text',
 		'section'=>'onepage_about_section',
 		'active_callback'=>'onepage_about_radio_callback'
 	));
 	//about us description control
-	$wp_customize->add_setting('onepage_about_description_setting',array(
+	$wp_customize->add_setting('onepage_about[description_setting]',array(
 		'default'=>'ipsum',
 		'transport'=>'refresh',
 		'sanitize_callback'=>'sanitize_textarea_field'
 	));
-	$wp_customize->add_control('onepage_about_description_setting',array(
+	$wp_customize->add_control('onepage_about[description_setting]',array(
 		'label'=>esc_html__( 'Description','onepagetheme' ),
 		'type'=>'textarea',
 		'section'=>'onepage_about_section',

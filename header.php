@@ -9,12 +9,6 @@
 <?php wp_head()?>
 <body class="<?php echo custom_body_class();?>">
 <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-    <div id="loader">
-        <div class="loader-container">
-            <i class="fa fa-circle-o-notch fa-spin"></i>
-        </div>
-    </div><!-- #loader -->
     <?php color_switcher();?>
     <header class="site-header" id="masthead">
         <div class="site-menu">
@@ -65,3 +59,6 @@
     </header>
     <?php icon_menu();?>
     <div id="content" class="site-content">
+        <?php if(is_front_page()):?>
+
+        <?php endif; ?>
