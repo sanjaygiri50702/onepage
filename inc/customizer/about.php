@@ -5,55 +5,55 @@
 		'title'=>__('About us','onepagetheme'),
 		'panel'=>'section'
 	));
-	$wp_customize->add_setting('onepage_about[about_section_enable]',array(
+	$wp_customize->add_setting('onepage[about_section_enable]',array(
 		'transport'=>'refresh',
 		'default'=>$options['about_section_enable'],
 	));
-	$wp_customize->add_control('onepage_about[about_section_enable]',array(
+	$wp_customize->add_control('onepage[about_section_enable]',array(
 		'label'=>esc_html__( 'About us section enable','onepagetheme' ),
 		'type'=>'radio',
 		'section'=>'onepage_about_section',
 		'type'=>'radio',
 		'choices'=>array(
-			'1' => 'Enable',
-			'0' => 'Disable')
+			1 => 'Enable',
+			0 => 'Disable')
 	));
 	//about us tittle control
 
-	$wp_customize->add_setting('onepage_about[about_title]',array(
+	$wp_customize->add_setting('onepage[about_title]',array(
 		'default'=>$options['about_title'],
 		'transport'=>'refresh',
 		'sanitize_callback'=>'sanitize_text_field'
 
 	));
-	$wp_customize->add_control('onepage_about[about_title]',array(
+	$wp_customize->add_control('onepage[about_title]',array(
 		'label'=>esc_html__( 'Title','onepagetheme' ),
 		'type'=>'text',
 		'section'=>'onepage_about_section',
 		'active_callback'=>'onepage_about_radio_callback'
 	));
 	//about us description control
-	$wp_customize->add_setting('onepage_about[description_setting]',array(
-		'default'=>'ipsum',
+	$wp_customize->add_setting('onepage[about_description]',array(
+		'default'=>$options['about_description'],
 		'transport'=>'refresh',
 		'sanitize_callback'=>'sanitize_textarea_field'
 	));
-	$wp_customize->add_control('onepage_about[description_setting]',array(
+	$wp_customize->add_control('onepage[about_description]',array(
 		'label'=>esc_html__( 'Description','onepagetheme' ),
 		'type'=>'textarea',
 		'section'=>'onepage_about_section',
 		'active_callback'=>'onepage_about_radio_callback'
-		
+
 	));
 	//about us bar01 control
-	$wp_customize->add_setting('onepage_bar01_setting',array(
-		'dafault'=>'ipsum',
+	$wp_customize->add_setting('onepage[about_bar01]',array(
+		'default'=>$options['about_bar01'],
 		'transport'=>'refresh',
 		'sanitize_callback'=>'sanitize_text_field',
         'validate_callback'=>'validate_about_counter'
 
     ));
-	$wp_customize->add_control('onepage_bar01_setting',array(
+	$wp_customize->add_control('onepage[about_bar01]',array(
 		'label'=>esc_html__( 'Percent','onepagetheme' ),
 		'type'=>'number',
 		'section'=>'onepage_about_section',
@@ -62,15 +62,15 @@
 
     ));
 	//about us bar02 control
-	$wp_customize->add_setting('onepage_bar02_setting',array(
-		'dafault'=>'ipsum',
+	$wp_customize->add_setting('onepage[about_bar02]',array(
+		'default'=>$options['about_bar02'],
 		'transport'=>'refresh',
 		'sanitize_callback'=>'sanitize_text_field',
         'validate_callback'=>'validate_about_counter'
 
 
     ));
-	$wp_customize->add_control('onepage_bar02_setting',array(
+	$wp_customize->add_control('onepage[about_bar02]',array(
 		'label'=>esc_html__( 'percent','onepagetheme' ),
 		'type'=>'number',
 		'section'=>'onepage_about_section',
@@ -79,15 +79,15 @@
 
 	));
 	//about us bar03 control
-	$wp_customize->add_setting('onepage_bar03_setting',array(
-		'dafault'=>'ipsum',
+	$wp_customize->add_setting('onepage[about_bar03]',array(
+		'default'=>$options['about_bar03'],
 		'transport'=>'refresh',
 		'sanitize_callback'=>'sanitize_text_field',
         'validate_callback'=>'validate_about_counter'
 
 
     ));
-	$wp_customize->add_control('onepage_bar03_setting',array(
+	$wp_customize->add_control('onepage[about_bar03]',array(
 		'label'=>esc_html__( 'percent','onepagetheme' ),
 		'type'=>'number',
 		'section'=>'onepage_about_section',

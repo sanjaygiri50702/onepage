@@ -1,13 +1,20 @@
 <?php
 function onepage_add_about_details(){
     $options = onepage_get_theme_options();
+    if(intval($options['about_section_enable'])!==1){
+    return ;
+    }
     $section_details = onepage_about_section_details();
     onepage_render_about_section($section_details);
+
 }
     function onepage_about_section_details(){
         $options = onepage_get_theme_options();
         $content['title'] = $options['about_title'];
-        $content['description'] = $options['description'];
+        $content['description'] = $options['about_description'];
+        $content['bar01'] = $options['about_bar01'];
+        $content['bar02'] = $options['about_bar02'];
+        $content['bar03'] = $options['about_bar03'];
         return $content;
     }
 function onepage_render_about_section($content = array()){ ?>
@@ -15,7 +22,7 @@ function onepage_render_about_section($content = array()){ ?>
         <div class="container">
             <div class="about-content-title clear">
                 <header class="entry-header">
-                    <h2 class="entry-title"><?php $content['title']?></h2>
+                    <h2 class="entry-title"><?php echo esc_html__($content['title'])?></h2>
                 </header>
                 <?php wp_nav_menu( array(
                     'theme_location'=>'social',
@@ -30,9 +37,9 @@ function onepage_render_about_section($content = array()){ ?>
                         <div class="tp-horizontalbar">
                             <div class="tp-skills-horizontalbar">
                                 <?php
-                                design_bar(get_theme_mod('onepage_bar01_setting'),'Design');
-                                design_bar(get_theme_mod('onepage_bar02_setting'),'Development');
-                                design_bar(get_theme_mod('onepage_bar03_setting'),'Management');
+                                design_bar($content['bar01'],'Design');
+                                design_bar($content['bar02'],'Development');
+                                design_bar($content['bar03'],'Management');
                                 ?>
                             </div><!-- .tp-skills-horizontalbar -->
                         </div><!-- .tp-horizontalbar -->
@@ -43,7 +50,7 @@ function onepage_render_about_section($content = array()){ ?>
                         <?php
                         /* $post=get_post(164);
                         echo $post->post_content;*/
-                        echo get_theme_mod( 'onepage_about_description_setting');
+                        echo $content['description']
                         ?>
                     </div><!-- .entry-summary -->
                 </div><!-- .hentry -->

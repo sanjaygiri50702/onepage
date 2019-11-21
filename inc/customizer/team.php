@@ -6,7 +6,7 @@ $wp_customize->add_section('onepage_team_section',array(
 ));
 //team tittle setting
 $wp_customize->add_setting('onepage_team_title_setting',array(
-    'dafault'=>'The Team',
+    'default'=>'The Team',
     'transport'=>'refresh',
     'sanitize_callback'=>'sanitize_text_field'
 ));
@@ -45,7 +45,7 @@ $wp_customize->add_control('onepage_team_select_radio_setting',array(
     )
 ));
 $wp_customize->add_setting('onepage_team01_title_setting',array(
-    'dafault'=>'Lorem ipsum',
+    'default'=>'Lorem ipsum',
     'transport'=>'refresh',
     'sanitize_callback'=>'sanitize_text_field'
 
@@ -84,7 +84,7 @@ $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize,'onepage
 
 )));
 $wp_customize->add_setting('onepage_team02_title_setting',array(
-    'dafault'           =>'Lorem ipsum',
+    'default'           =>'Lorem ipsum',
     'transport'         =>'refresh',
     'sanitize_callback' =>'sanitize_text_field'
 ));
@@ -123,7 +123,7 @@ $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize,'onepage
 
 )));
 $wp_customize->add_setting('onepage_team03_title_setting',array(
-    'dafault'           =>'Lorem ipsum',
+    'default'           =>'Lorem ipsum',
     'transport'         =>'refresh',
     'sanitize_callback' =>'sanitize_text_field'
 

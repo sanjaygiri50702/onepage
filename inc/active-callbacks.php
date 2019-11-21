@@ -1,59 +1,65 @@
 <?php
 
 function onepage_about_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_about[about_section_enable]')->value();
+    $radio_value = $control->manager->get_setting('onepage[about_section_enable]')->value();
     if($radio_value==1) return true;
     else return false;
 }
 function onepage_service_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_service_radio_setting')->value();
+    $radio_value = $control->manager->get_setting('onepage[service_section_enable]')->value();
     if($radio_value==1) return true;
     else return false;
 }
 
 function portfolio_post_callback($control){
-    $value = $control->manager->get_setting('onepage_portfolio_contenttype_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
+    $value = $control->manager->get_setting('onepage[portfolio_content_type]')->value();
+    $radio_value = $control->manager->get_setting('onepage[portfolio_section_enable]')->value();
     if($value == 'post' && $radio_value==1) return true;
     else return false;
 }
+function portfolio_page_callback($control){
+    $value = $control->manager->get_setting('onepage[portfolio_content_type]')->value();
+    $radio_value = $control->manager->get_setting('onepage[portfolio_section_enable]')->value();
+    if($value == 'page' && $radio_value==1) return true;
+    else return false;
+}
 function portfolio_category_callback($control){
-    $value = $control->manager->get_setting('onepage_portfolio_contenttype_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
+    $value = $control->manager->get_setting('onepage[portfolio_content_type]')->value();
+    $radio_value = $control->manager->get_setting('onepage[portfolio_section_enable]')->value();
     if($value == 'category' && $radio_value==1) return true;
     else return false;
 }
 function portfolio_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_portfolio_radio_setting')->value();
+    $radio_value = $control->manager->get_setting('onepage[portfolio_section_enable]')->value();
     if($radio_value==1) return true;
     else return false;
 }
 function counter_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
+    $radio_value = $control->manager->get_setting('onepage[counter_section_enable]')->value();
     if($radio_value==1) return true;
     else return false;
 }
 function counter01_radio_callback($control){
-    $value = $control->manager->get_setting('onepage_counter_select_radio_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
+    $value = $control->manager->get_setting('onepage[counter]')->value();
+    $radio_value = $control->manager->get_setting('onepage[counter_section_enable]')->value();
     if($radio_value==1 && $value==1) return true;
     else return false;
 }
 function counter02_radio_callback($control){
-    $value = $control->manager->get_setting('onepage_counter_select_radio_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
+    $value = $control->manager->get_setting('onepage[counter]')->value();
+    $radio_value = $control->manager->get_setting('onepage[counter_section_enable]')->value();
     if($radio_value==1 && $value==2) return true;
     else return false;
 }
 function counter03_radio_callback($control){
-    $value = $control->manager->get_setting('onepage_counter_select_radio_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
+    $value = $control->manager->get_setting('onepage[counter]')->value();
+    $radio_value = $control->manager->get_setting('onepage[counter_section_enable]')->value();
     if($radio_value==1 && $value==3) return true;
     else return false;
 }
 function counter04_radio_callback($control){
-    $value = $control->manager->get_setting('onepage_counter_select_radio_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_counter_radio_setting')->value();
+    $value = $control->manager->get_setting('onepage[counter]')->value();
+    $radio_value = $control->manager->get_setting('onepage[counter_section_enable]')->value();
     if($radio_value==1 && $value==4) return true;
     else return false;
 }

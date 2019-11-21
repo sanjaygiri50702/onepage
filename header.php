@@ -59,6 +59,9 @@
     </header>
     <?php icon_menu();?>
     <div id="content" class="site-content">
-        <?php if(is_front_page()):?>
-
-        <?php endif; ?>
+        <?php if(is_front_page()):
+        onepage_add_about_details();
+        onepage_add_service_section();
+        onepage_add_counter_section();
+        onepage_add_portfolio_section();
+        endif; ?>

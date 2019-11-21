@@ -1,10 +1,21 @@
 <?php
 function get_category_list(){
     $cats=get_categories();
+    $cat_list = [];
     foreach($cats as $cat){
         $cat_list[$cat->term_id]=$cat->name;
     }
     return $cat_list;
+}
+function get_page_list(){
+    $page_list = [];
+    $pages=get_pages(array(
+        'number'=> 0,
+    ));
+    foreach($pages as $page){
+        $page_list[$page->ID]=$page->post_title;
+    }
+    return $page_list;
 }
 function get_post_list(){
     $posts=get_posts(array(
@@ -34,7 +45,7 @@ function custom_body_class(){
 function onepage_get_theme_options() {
     $onepage_default_options = onepage_get_default_theme_options();
 
-    return array_merge( $onepage_default_options , get_theme_mod( 'onepage_about', $onepage_default_options ) ) ;
+    return array_merge( $onepage_default_options , get_theme_mod( 'onepage', $onepage_default_options ) ) ;
 }
 function get_testimonial_list($id){
     $choice = [];

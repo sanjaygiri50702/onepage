@@ -78,13 +78,11 @@ function onepage_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'onepage_widgets_init' );
-
 add_filter('excerpt_length',function ($length){
     return 10;
 });
-
+require get_template_directory() .'/inc/defaults.php';
 function onepage_customize_register( $wp_customize ) {
-    require get_template_directory() .'/inc/defaults.php';
     $options = onepage_get_default_theme_options();
     $wp_customize->add_section( 'onepage_footer_section' , array(
         'title' => esc_html__( 'Footer', 'onepagetheme' ),
@@ -101,7 +99,7 @@ function onepage_customize_register( $wp_customize ) {
         'section'=>'onepage_footer_section',
     ));
 	$wp_customize->add_panel( 'section', array(
-		'title' =>$options['about_title'],
+		'title' =>esc_html__('Homepage Section','onepagetheme'),
 		'description' =>__( 'Cras placerat ipsum sit amet vehicula rhoncus' ),
 		'priority' => 160
 	  ) );
@@ -133,6 +131,9 @@ function onepage_customize_register( $wp_customize ) {
   }
   add_action( 'customize_register', 'onepage_customize_register' );
 require get_template_directory() . '/inc/section/about.php';
+require get_template_directory() . '/inc/section/services.php';
+require get_template_directory() . '/inc/section/counter.php';
+require get_template_directory() . '/inc/section/portfolio.php';
 require get_template_directory() . '/inc/helper.php';
 require get_template_directory() . '/inc/sanitize.php';
 require get_template_directory() . '/inc/validation.php';
