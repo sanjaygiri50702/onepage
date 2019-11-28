@@ -11,13 +11,13 @@
     function onepage_post_category(){ ?>
         <span class="cat-links">
             <span class="screen-reader-text">Categories</span>
-            <a href="#" rel="category tag"><?php echo get_the_category()[0]->name;?></a>
+            <a href="<?php echo get_category_link(get_the_category()[0]->term_id) ?>" rel="category tag"><?php echo get_the_category()[0]->name;?></a>
         </span><!-- .cat-links -->
     <?php }
 
     function onepage_post_on(){ ?>
         <span class="posted-on"><span class="screen-reader-text">Posted on</span>
-            <a href="#" rel="bookmark">
+            <a href="<?php echo get_day_link(get_the_date('Y'),get_the_date('m'),get_the_date('d'));?>" rel="bookmark">
                 <time class="entry-date published" datetime="2016-07-21T10:00:09+00:00">
                     <?php echo get_the_date();?>
                 </time>

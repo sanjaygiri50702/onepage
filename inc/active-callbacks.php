@@ -64,62 +64,75 @@ function counter04_radio_callback($control){
     else return false;
 }
 function author_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_author_radio_setting')->value();
+    $radio_value = $control->manager->get_setting('onepage[author_section_enable]')->value();
     if($radio_value==1) return true;
     else return false;
 }
 function blog_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_blog_radio_setting')->value();
+    $radio_value = $control->manager->get_setting('onepage[blog_section_enable]')->value();
     if($radio_value==1) return true;
     else return false;
 }
 function blog_post_callback($control){
-    $value = $control->manager->get_setting('onepage_blog_contenttype_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_blog_radio_setting')->value();
+    $value = $control->manager->get_setting('onepage[blog_content_type]')->value();
+    $radio_value = $control->manager->get_setting('onepage[blog_section_enable]')->value();
     if($value == 'post' && $radio_value==1) return true;
     else return false;
 }
 function blog_category_callback($control){
-    $value = $control->manager->get_setting('onepage_blog_contenttype_setting')->value();
-    $radio_value = $control->manager->get_setting('onepage_blog_radio_setting')->value();
+    $value = $control->manager->get_setting('onepage[blog_content_type]')->value();
+    $radio_value = $control->manager->get_setting('onepage[blog_section_enable]')->value();
     if($value == 'category' && $radio_value==1) return true;
     else return false;
 }
-
-function team01_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_team_select_radio_setting')->value();
+function blog_page_callback($control){
+    $value = $control->manager->get_setting('onepage[blog_content_type]')->value();
+    $radio_value = $control->manager->get_setting('onepage[blog_section_enable]')->value();
+    if($value == 'page' && $radio_value==1) return true;
+    else return false;
+}
+function team_radio_callback($control){
+    $radio_value = $control->manager->get_setting('onepage[team_section_enable]')->value();
     if($radio_value==1) return true;
     else return false;
 }
+function team01_radio_callback($control){
+    $radio_value = $control->manager->get_setting('onepage[team_section_enable]')->value();
+    $value = $control->manager->get_setting('onepage[team_select]')->value();
+    if($value ==1 && $radio_value == 1) return true;
+    else return false;
+}
 function team02_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_team_select_radio_setting')->value();
-    if($radio_value==2) return true;
+    $radio_value = $control->manager->get_setting('onepage[team_section_enable]')->value();
+    $value = $control->manager->get_setting('onepage[team_select]')->value();
+    if($value ==2 && $radio_value == 1) return true;
     else return false;
 }
 function team03_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_team_select_radio_setting')->value();
-    if($radio_value==3) return true;
+    $radio_value = $control->manager->get_setting('onepage[team_section_enable]')->value();
+    $value = $control->manager->get_setting('onepage[team_select]')->value();
+    if($value ==3 && $radio_value == 1) return true;
     else return false;
 }
 
 function onepage_testimonial_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_testimonial_radio_setting')->value();
-    $choice_id = $control->manager->get_setting('onepage_testimonial_select_radio_setting')->value();
+    $radio_value = $control->manager->get_setting('onepage[testimonial_section_enable]')->value();
+    $choice_id = $control->manager->get_setting('onepage[testimonial_select]')->value();
     $control_id = $control->id;
-    if($radio_value==1 && $choice_id==1 && $control_id=='onepage_testimonial01_title_setting') return true;
-    if($radio_value==1 && $choice_id==2 && $control_id=='onepage_testimonial02_title_setting') return true;
-    if($radio_value==1 && $choice_id==3 && $control_id=='onepage_testimonial03_title_setting') return true;
-    if($radio_value==1 && $choice_id==1 && $control_id=='onepage_testimonial01_description_setting') return true;
-    if($radio_value==1 && $choice_id==2 && $control_id=='onepage_testimonial02_description_setting') return true;
-    if($radio_value==1 && $choice_id==3 && $control_id=='onepage_testimonial03_description_setting') return true;
-    if($radio_value==1 && $choice_id==1 && $control_id=='onepage_testimonial01_author_setting') return true;
-    if($radio_value==1 && $choice_id==2 && $control_id=='onepage_testimonial02_author_setting') return true;
-    if($radio_value==1 && $choice_id==3 && $control_id=='onepage_testimonial03_author_setting') return true;
-    if($radio_value==1 && $control_id=='onepage_testimonial_select_radio_setting') return true;
+    if($radio_value==1 && $choice_id==1 && $control_id=='onepage[testimonial01_title]') return true;
+    if($radio_value==1 && $choice_id==2 && $control_id=='onepage[testimonial02_title]') return true;
+    if($radio_value==1 && $choice_id==3 && $control_id=='onepage[testimonial03_title]') return true;
+    if($radio_value==1 && $choice_id==1 && $control_id=='onepage[testimonial01_description]') return true;
+    if($radio_value==1 && $choice_id==2 && $control_id=='onepage[testimonial02_description]') return true;
+    if($radio_value==1 && $choice_id==3 && $control_id=='onepage[testimonial03_description]') return true;
+    if($radio_value==1 && $choice_id==1 && $control_id=='onepage[testimonial01_author]') return true;
+    if($radio_value==1 && $choice_id==2 && $control_id=='onepage[testimonial02_author]') return true;
+    if($radio_value==1 && $choice_id==3 && $control_id=='onepage[testimonial03_author]') return true;
+    if($radio_value==1 && $control_id=='onepage[testimonial_select]') return true;
     else return false;
 }
 function onepage_client_radio_callback($control){
-    $radio_value = $control->manager->get_setting('onepage_client_radio_setting')->value();
+    $radio_value = $control->manager->get_setting('onepage[client_section_enable]')->value();
     if($radio_value==1) return true;
     else return false;
 }

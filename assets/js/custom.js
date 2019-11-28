@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-
+    console.log($('#wp-custom-header-video'));
     /*------------------------------------------------
                 DECLARATIONS
     ------------------------------------------------*/

@@ -1,5 +1,5 @@
 <?php
-function onepage_add_about_details(){
+function onepage_add_about_section(){
     $options = onepage_get_theme_options();
     if(intval($options['about_section_enable'])!==1){
     return ;
@@ -50,7 +50,7 @@ function onepage_render_about_section($content = array()){ ?>
                         <?php
                         /* $post=get_post(164);
                         echo $post->post_content;*/
-                        echo $content['description']
+                        echo esc_html($content['description']);
                         ?>
                     </div><!-- .entry-summary -->
                 </div><!-- .hentry -->

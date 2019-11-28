@@ -30,18 +30,6 @@ function get_category_name($id){
     $category = get_the_category($id);
     return $category['0']->name;
 }
-function custom_body_class(){
-    if(is_front_page()){
-        return 'home';
-    }
-    elseif(is_singular()){
-        return 'single-post '.get_theme_mod('onepage_theme_option_single_page_layout').'';
-    }
-    elseif (is_home()){
-        return 'blog '.get_theme_mod('onepage_theme_option_blog_page_layout').'';
-    }
-}
-
 function onepage_get_theme_options() {
     $onepage_default_options = onepage_get_default_theme_options();
 
@@ -56,11 +44,25 @@ function get_testimonial_list($id){
 }
 function design_bar($width,$name){?>
     <div class="outer-box">
-        <div class="inner-fill" style="background-color:#2223828; width:<?php echo $width ?>%">
+        <div class="inner-fill" style="background-color:#2223828; width:<?php esc_attr_e(absint($width));?>%">
 		<span class="percent-value">
-			<?php echo $width?>%
+			<?php esc_html_e($width);?>%
 		</span>
         </div>
-        <span class="skill-name"><?php echo esc_html($name);?> #</span>
+        <span class="skill-name"><?php esc_html_e($name);?> #</span>
     </div>
 <?php }
+add_filter('body_class',function ($class){
+    $onepage_default_options = onepage_get_theme_options();
+    if(is_front_page())
+        return array('home');
+    elseif (is_page())
+        return array_merge($class,explode(' ',$onepage_default_options['page_layout']));
+    elseif (is_single())
+        return array_merge($class,explode(' ',$onepage_default_options['post_layout']));
+    elseif (! is_front_page() && is_home())
+        return array_merge($class,explode(' ',$onepage_default_options['blog_layout']));
+    elseif (is_archive())
+        return array_merge($class,array('no-sidebar'));
+    return $class;
+});

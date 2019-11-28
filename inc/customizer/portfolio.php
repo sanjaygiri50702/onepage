@@ -3,18 +3,30 @@ $wp_customize->add_section('onepage_portfolio_section',array(
     'title'=>esc_html__( 'Portfolio','onepagetheme' ),
     'panel'=>'section'
 ));
-$wp_customize->add_setting('onepage[portfolio_section_enable]',array(
-    'transport'=>'refresh',
-    'default'=>$options['portfolio_section_enable']
-));
-$wp_customize->add_control('onepage[portfolio_section_enable]',array(
-    'label'=>esc_html__( 'Portfolio section enable','onepagetheme' ),
-    'type'=>'radio',
-    'section'=>'onepage_portfolio_section',
-    'type'=>'radio',
-    'choices'=>array(
-        '1' => 'Enable',
-        '0' => 'Disable')
+//$wp_customize->add_setting('onepage[portfolio_section_enable]',array(
+//    'transport'=>'refresh',
+//    'default'=>$options['portfolio_section_enable']
+//));
+//$wp_customize->add_control('onepage[portfolio_section_enable]',array(
+//    'label'=>esc_html__( 'Portfolio section enable','onepagetheme' ),
+//    'type'=>'radio',
+//    'section'=>'onepage_portfolio_section',
+//    'type'=>'radio',
+//    'choices'=>array(
+//        '1' => 'Enable',
+//        '0' => 'Disable')
+//));
+$wp_customize->add_setting( 'onepage[portfolio_section_enable]', array(
+        'default' => $options['portfolio_section_enable'],
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control( new Onepage_toggle_switch( $wp_customize, 'onepage[portfolio_section_enable]',
+    array(
+        'label' => esc_html__( 'Portfolio section enable' ),
+        'section' => 'onepage_portfolio_section'
+    )
 ));
 $wp_customize->add_setting('onepage[portfolio_title]',array(
     'default'=>$options['portfolio_title'],

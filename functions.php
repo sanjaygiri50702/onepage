@@ -52,7 +52,7 @@ function onepage_scripts(){
 	wp_enqueue_script( 'jquery', get_template_directory_uri(  ) . '/assets/js/jquery-1.12.4.min.js' );
 	wp_enqueue_script( 'slick', get_template_directory_uri(  ) . '/assets/js/slick.js' );
 	wp_enqueue_script( 'custom', get_template_directory_uri(  ) . '/assets/js/custom.js' );
-	wp_enqueue_script( 'slick-min', get_template_directory_uri(  ) . '/assets/js/slick-min.js' );
+	wp_enqueue_script( 'slick-min', get_template_directory_uri(  ) . '/assets/js/slick.min.js' );
 	wp_enqueue_script( 'google-min', get_template_directory_uri(  ) . '/assets/js/jquery.googlemap.js' );
 }
 add_action( 'wp_enqueue_scripts', 'onepage_scripts');
@@ -81,6 +81,7 @@ add_action( 'widgets_init', 'onepage_widgets_init' );
 add_filter('excerpt_length',function ($length){
     return 10;
 });
+
 require get_template_directory() .'/inc/defaults.php';
 function onepage_customize_register( $wp_customize ) {
     $options = onepage_get_default_theme_options();
@@ -108,7 +109,8 @@ function onepage_customize_register( $wp_customize ) {
         'description' =>__( 'Cras placerat ipsum sit amet vehicula rhoncus' ),
         'priority' => 180
     ) );
-	//load about section
+    require get_template_directory() . '/inc/custom-controls.php';
+    //load about section
 	require get_template_directory() . '/inc/customizer/about.php';
 	//load service section
 	require get_template_directory() . '/inc/customizer/service.php';
@@ -134,6 +136,12 @@ require get_template_directory() . '/inc/section/about.php';
 require get_template_directory() . '/inc/section/services.php';
 require get_template_directory() . '/inc/section/counter.php';
 require get_template_directory() . '/inc/section/portfolio.php';
+require get_template_directory() . '/inc/section/author.php';
+require get_template_directory() . '/inc/section/blog.php';
+require get_template_directory() . '/inc/section/testimonial.php';
+require get_template_directory() . '/inc/section/team.php';
+require get_template_directory() . '/inc/section/client.php';
+require get_template_directory() . '/inc/section/contact.php';
 require get_template_directory() . '/inc/helper.php';
 require get_template_directory() . '/inc/sanitize.php';
 require get_template_directory() . '/inc/validation.php';

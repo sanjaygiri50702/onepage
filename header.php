@@ -7,7 +7,7 @@
     <title><?php bloginfo( 'name' )?></title>
 </head>
 <?php wp_head()?>
-<body class="<?php echo custom_body_class();?>">
+<body <?php body_class();?>">
 <div id="page" class="site">
     <?php color_switcher();?>
     <header class="site-header" id="masthead">
@@ -41,7 +41,7 @@
                 <video id="wp-custom-header-video" autoplay="" loop="" width="1920" height="1080" src="<?php echo get_template_directory_uri().'/assets/video/video.mp4'?>">
                 </video>
                 <button type="button" id="wp-custom-header-video-button" class="wp-custom-header-video-button wp-custom-header-video-play">
-                    Pause
+                    pause
                 </button>
             </div>
             <div class="video-content">
@@ -60,8 +60,16 @@
     <?php icon_menu();?>
     <div id="content" class="site-content">
         <?php if(is_front_page()):
-        onepage_add_about_details();
-        onepage_add_service_section();
-        onepage_add_counter_section();
-        onepage_add_portfolio_section();
+        add_action('onepage_primary_content','onepage_add_about_section');
+        add_action('onepage_primary_content','onepage_add_service_section');
+        add_action('onepage_primary_content','onepage_add_counter_section');
+        add_action('onepage_primary_content','onepage_add_portfolio_section');
+        add_action('onepage_primary_content','onepage_add_author_section');
+        add_action('onepage_primary_content','onepage_add_blog_section');
+        add_action('onepage_primary_content','onepage_add_testimonial_section');
+        add_action('onepage_primary_content','onepage_add_team_section');
+        add_action('onepage_primary_content','onepage_add_client_section');
+        add_action('onepage_primary_content','onepage_render_contact_section');
+        do_action('onepage_primary_content');
+        get_footer();
         endif; ?>

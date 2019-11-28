@@ -17,7 +17,7 @@ function onepage_portfolio_section_details(){
             $args = array(
                 'post_type'=> 'post',
                 'order' =>'DSC',
-                'cat'=>$options['portfolio_category'],
+                'cat'=>(!empty($options['portfolio_category'])) ? $options['portfolio_category'] : '',
                 'posts_per_page'=>$options['portfolio_post_number']
             );
             break ;
@@ -88,7 +88,7 @@ function onepage_render_portfolio_section($contents = array()){
                                 </div><!-- .portfolio-title -->
 
                                 <div class="entry-summary">
-                                    <?php echo esc_html__($content['excerpt'],'onepagetheme');?>
+                                    <?php esc_html_e($content['excerpt'],'onepagetheme');?>
                                 </div><!-- .entry-summary -->
                             </div><!---.hentry--->
                         <?php } ?>

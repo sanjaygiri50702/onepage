@@ -19,10 +19,10 @@ function onepage_render_service_section($content = array()){ ?>
         <div class="container"><!-- .container -->
             <div class="services-content-title clear">
                 <header class="entry-header section-title">
-                    <h2 class="entry-title"><?php echo $content['title'];?></h2>
+                    <h2 class="entry-title"><?php echo esc_html($content['title']);?></h2>
                 </header><!-- .entry-header -->
 
-                <p class="description"><?php echo $content['description'];?></p>
+                <p class="description"><?php echo esc_html($content['description']);?></p>
             </div><!-- .services-contennt -->
             <div class="entry-content"><!-- .entry-content -->
                 <div class="tabs-wrapper"><!-- .tabs-wrapper -->

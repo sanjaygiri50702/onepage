@@ -72,14 +72,6 @@
                 </div><!-- #about-author -->
             </main><!-- #main -->
         </div><!-- #primary -->
-        <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-        <aside class="widget-area" id="secondary" role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'twentynineteen' ); ?>">
-            <?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
-                <div class="widget-column footer-widget-1">
-                    <?php dynamic_sidebar( 'sidebar-1' ); ?>
-                </div>
-            <?php } ?>
-        </aside><!-- .widget-area -->
-        <?php endif; ?>
+        <?php get_sidebar();?>
     </div><!-- .page-section/.clear -->
 </div><!-- .template-part -->

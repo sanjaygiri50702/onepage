@@ -3,19 +3,31 @@
 		'title'=>__('Counter','onepagetheme'),
 		'panel'=>'section'
 	  ));
-	$wp_customize->add_setting('onepage[counter_section_enable]',array(
-		'transport'=>'refresh',
-		'default'=>$options['counter_section_enable']
-	));
-	$wp_customize->add_control('onepage[counter_section_enable]',array(
-		'label'=>esc_html__( 'About us section enable','onepagetheme' ),
-		'type'=>'radio',
-		'section'=>'onepage_counter_section',
-		'type'=>'radio',
-		'choices'=>array(
-			'1' => 'Enable',
-			'0' => 'Disable')
-	));
+//	$wp_customize->add_setting('onepage[counter_section_enable]',array(
+//		'transport'=>'refresh',
+//		'default'=>$options['counter_section_enable']
+//	));
+//	$wp_customize->add_control('onepage[counter_section_enable]',array(
+//		'label'=>esc_html__( 'About us section enable','onepagetheme' ),
+//		'type'=>'radio',
+//		'section'=>'onepage_counter_section',
+//		'type'=>'radio',
+//		'choices'=>array(
+//			'1' => 'Enable',
+//			'0' => 'Disable')
+//	));
+$wp_customize->add_setting( 'onepage[counter_section_enable]', array(
+        'default' => $options['counter_section_enable'],
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control( new Onepage_toggle_switch( $wp_customize, 'onepage[counter_section_enable]',
+    array(
+        'label' => esc_html__( 'Counter section enable' ),
+        'section' => 'onepage_counter_section'
+    )
+));
 $wp_customize->add_setting('onepage[counter]',array(
     'transport'=>'refresh',
     'default'=>1
@@ -48,7 +60,7 @@ $wp_customize->add_control('onepage[counter]',array(
     ));
     $wp_customize->add_setting('onepage[counter01_value]',array(
 		'transport'=>'refresh',
-		'sanitize_callback'=>'sanitize_text_field',
+		'sanitize_callback'=>'absint',
         'default'=>$options['counter01_value']
 
     ));
